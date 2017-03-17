@@ -49,7 +49,7 @@ if (! function_exists('team_members_post_type')) {
 
 add_filter('manage_team_members_posts_columns', 'add_team_members_columns');
 if ( ! function_exists('add_team_members_columns')) {
-    function add_triplus_team_columns($columns) {
+    function add_team_members_columns($columns) {
         $columns = array(
             'cb'            => '<input type="checkbox" />',
             'thumbnail'     => 'Thumbnail',
