@@ -55,3 +55,52 @@ if (! function_exists('tmcpt_save_meta_field_values')) {
 }
 
 add_action('save_post', 'tmcpt_save_meta_field_values');
+
+if (! function_exists('tmcpt_edit_form_top')) {
+	function tmcpt_edit_form_top () {
+		$scr = get_current_screen();
+		if ($scr->post_type === 'team_members') {
+			echo "<h1 class='wp-heading-inline'>Team Member's Name:</h1>";
+		}
+	}
+}
+
+add_action('edit_form_top', 'tmcpt_edit_form_top');
+
+if (! function_exists('tmcpt_edit_form_after_title')) {
+	function tmcpt_edit_form_after_title () {
+		$scr = get_current_screen();
+		if ($scr->post_type === 'team_members') {
+		echo "<p>(Enter Team Member's Name above as Post Title)</p>";
+		echo "<h1 class='wp-heading-inline'>Team Member Biography:</h1>";
+		}
+	}
+}
+
+add_action('edit_form_after_title', 'tmcpt_edit_form_after_title');
+
+if (! function_exists('tmcpt_edit_form_after_editor')) {
+	function tmcpt_edit_form_after_editor () {
+		$scr = get_current_screen();
+		if ($scr->post_type === 'team_members') {
+			echo "<p>(Enter Team Member's Bio above as Post Content)</p>";
+		}
+	}
+}
+
+add_action('edit_form_after_editor', 'tmcpt_edit_form_after_editor');
+
+if (! function_exists('tmcpt_add_html_post_thumbnail')) {
+	function tmcpt_add_html_post_thumbnail ($content, $post_id) {
+		$scr = get_current_screen();
+		if ($scr->post_type === 'team_members') {
+			$msg = "<h2 style='padding: 8px 0;'>Upload Team Member's photo as Featured Image</h2>";
+			$msg .= "<p>Best image size is a square 600 x 600 image.</p>";
+			return $content .= $msg;
+		} else {
+			return $content;
+		}
+	}
+}
+
+add_filter('admin_post_thumbnail_html','tmcpt_add_html_post_thumbnail');

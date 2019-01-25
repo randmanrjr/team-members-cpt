@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Mayo Team Members CPT
+Plugin Name: Team Members CPT
 Description: Team Members Custom Post Type
 Version: 1.1.0
 Author: randmanrjr
