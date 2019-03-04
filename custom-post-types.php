@@ -43,6 +43,30 @@ if (! function_exists('team_members_post_type')) {
 
 }
 
+//Team members custom taxonomy
+add_action('init','team_members_custom_tax');
+
+if ( ! function_exists('team_members_custom_tax')) {
+	function team_members_custom_tax () {
+		$labels = array(
+			'name'                   => 'Team Member Categories',
+			'singular_name'          => 'Team Member Category',
+			'search_items'           => 'Search Team Member Categories',
+			'add_new_item'           => 'Add New Team Member Category',
+			'edit_item'              => 'Edit Team Member Category'
+		);
+		$opts = array(
+			'hierarchical'          => true,
+			'labels'                => $labels,
+			'show_admin_column'     => true,
+			'show_ui'               => true,
+			'publicly_queryable'    => false,
+			'rewrite'               => array('slug' => 'team-members-cat')
+		);
+		register_taxonomy('team_members_categories', array('team_members'), $opts);
+	}
+}
+
 //add additional columns in wp-admin to Team Members Custom Post Type
 
 add_filter('manage_team_members_posts_columns', 'add_team_members_columns');
