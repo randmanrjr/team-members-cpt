@@ -44,7 +44,9 @@ if (! function_exists('tmcpt_save_meta_field_values')) {
 			$post_id = $parent_id;
 		}
 		$fields = [
-			'tmcpt_pro_title'
+			'tmcpt_pro_title',
+            'tmcpt_pro_email',
+            'tmcpt_pro_phone'
 		];
 		foreach ($fields as $field) {
 			if (array_key_exists($field, $_POST)) {
@@ -103,4 +105,4 @@ if (! function_exists('tmcpt_add_html_post_thumbnail')) {
 	}
 }
 
-add_filter('admin_post_thumbnail_html','tmcpt_add_html_post_thumbnail');
+add_filter('admin_post_thumbnail_html','tmcpt_add_html_post_thumbnail', 10, 2);
