@@ -93,7 +93,7 @@ if (! function_exists('tmcpt_edit_form_after_editor')) {
 add_action('edit_form_after_editor', 'tmcpt_edit_form_after_editor');
 
 if (! function_exists('tmcpt_add_html_post_thumbnail')) {
-	function tmcpt_add_html_post_thumbnail ($content, $post_id) {
+	function tmcpt_add_html_post_thumbnail ($content, $post_id=null, $thumbnail_id=null) {
 		$scr = get_current_screen();
 		if ($scr->post_type === 'team_members') {
 			$msg = "<h2 style='padding: 8px 0;'>Upload Team Member's photo as Featured Image</h2>";

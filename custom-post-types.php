@@ -84,7 +84,7 @@ if ( ! function_exists('add_team_members_columns')) {
 
 add_action('manage_team_members_posts_custom_column', 'team_members_columns');
 if ( ! function_exists('team_members_columns')) {
-	function team_members_columns($column, $post_id) {
+	function team_members_columns($column, $post_id=null) {
 		global $post;
 		switch ($column) {
 			case 'thumbnail':
