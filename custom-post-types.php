@@ -34,7 +34,7 @@ if (! function_exists('team_members_post_type')) {
 			'has_archive'       => false,
 			'hierarchical'      => true,
 			'show_in_menu'      => true,
-			'rewrite'           => array('slug' => 'team-members'),
+			'rewrite'           => array('slug' => 'team-members', 'with_front' => false),
 			'supports'          => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes', 'custom-fields')
 		);
 
@@ -61,7 +61,7 @@ if ( ! function_exists('team_members_custom_tax')) {
 			'show_admin_column'     => true,
 			'show_ui'               => true,
 			'publicly_queryable'    => false,
-			'rewrite'               => array('slug' => 'team-members-cat')
+			'rewrite'               => array('slug' => 'team-members-cat', 'with_front' => false)
 		);
 		register_taxonomy('team_members_categories', array('team_members'), $opts);
 	}
